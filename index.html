@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <base href="/">
+</head>
+<body ng-controller="appController as appCtrl" style="background: {{ appCtrl.mainBackground }};">
+    <nav class="navbar">
+        <h1 class="brand">GetSumGrub</h1>
+        <div class="shopping-bag"></div>
+    </nav>
+    <section class="content">
+        <div class="content-container">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+
+    </section>
+
+</body>
+</html>

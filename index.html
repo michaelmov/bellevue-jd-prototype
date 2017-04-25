@@ -10,14 +10,25 @@
     <script src="app.js"></script>
     <base href="/">
 </head>
-<body ng-controller="appController as appCtrl" style="background:{{ appCtrl.mainBackground }};">
+<body ng-controller="appController as appCtrl" style="background: #F2F2F4;">
+    <style>.section-title:after {
+        border-color: {{appCtrl.themeColor}}
+    }
+    </style>
     <nav class="navbar">
         <h1 class="brand">GetSumGrub</h1>
-        <input type="text" placeholder=""/>
-        <div class="shopping-bag"></div>
+        <div class="shopping-bag" style="background-color: {{appCtrl.themeColor}}"></div>
     </nav>
     <div class="content">
         <section class="hero" style="background-image: url('{{appCtrl.heroImage}}')">
+            <div ng-if="appCtrl.heroOverlay" class="hero-overlay"></div>
+            <div class="content-container" style="display: flex; flex-direction: column; justify-content: flex-end">
+                <h1 class="restaurant-name" style="background-color: {{appCtrl.themeColor}}"> Spud's Donuts</h1>
+                <div class="restaurant-address" style="background-color: {{appCtrl.themeColor}}">
+                    3486 Boone St </br>
+                    Seattle, WA 98111
+                </div>
+            </div>
         </section>
         <div class="content-container">
             <h2 class="section-title">Classics</h2>
@@ -27,11 +38,24 @@
                   name="{{ donut.name }}"
                   image="{{ donut.imageUrl }}"
                   description="{{ donut.description }}"
-                  price="{{ donut.price }}">
+                  price="{{ donut.price }}"
+                  theme="{{appCtrl.themeColor}}"
+                  style="transition: height 0.3s {{appCtrl.bezier}};">
+            </card>
+        </div>
+        <div class="content-container">
+            <h2 class="section-title">Fancy</h2>
+        </div>
+        <div class="content-container">
+            <card ng-repeat="donut in appCtrl.dounts"
+                  name="{{ donut.name }}"
+                  image="{{ donut.imageUrl }}"
+                  description="{{ donut.description }}"
+                  price="{{ donut.price }}"
+                  theme="{{appCtrl.themeColor}}">
             </card>
         </div>
 
     </div>
-
 </body>
 </html>

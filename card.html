@@ -1,12 +1,15 @@
 <div class="product-header">
     <img class="product-image" ng-src="{{ image }}" alt="">
-    <div class="product-name">{{ name }}</div>
-    <div class="product-price">{{ price }}</div>
+    <div style="display: flex; flex-direction: column; width: auto">
+        <div class="product-name" style="background-color: {{theme}}">{{ name }}</div>
+        <div class="product-price" style="background-color: {{theme}}">{{ price }}</div>
+    </div>
+
 </div>
 <div class="product-details hidden">
     <div class="product-description">{{description}}</div>
     <div class="product-buttons">
-        <button class="primary-btn">Add to Box</button>
+        <button class="primary-btn" style="background-color: {{theme}}">Add to Box</button>
     </div>
 </div>
 

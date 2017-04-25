@@ -25,15 +25,18 @@ class appController {
         this.titleColor = null;
         this.mainBackground = null;
         this.heroImage = null;
+        this.heroOverlay = null;
+        this.bezier = null;
 
         this.options = {
-            mainBackground: {
-                grey: '#F2F2F4',
-                blue: '#f7fcff'
-            },
             heroImages: {
                 box: './images/donut-box.jpg',
                 stand: './images/donut-stand.jpg'
+            },
+            themeColors: {
+                red: '#fd5c63',
+                green: '#3be8b0',
+                blue: '#0099e5'
             }
         };
 
@@ -42,8 +45,11 @@ class appController {
 
     getOptions() {
         let params = this.$location.search();
-        this.mainBackground = this.options.mainBackground[params.mainBackground] || this.options.mainBackground.grey;
+
         this.heroImage = this.options.heroImages[params.heroImage] || this.options.heroImages.stand;
+        this.themeColor = this.options.themeColors[params.themeColor] || this.options.themeColors.green;
+        this.heroOverlay = params.heroOverlay || null;
+        this.bezier = params.bezier ? `cubic-bezier(${params.bezier})` : 'ease-in-out';
     }
 
 }
@@ -56,7 +62,8 @@ class cardDirective {
             name: '@',
             image: '@',
             description: '@',
-            price: '@'
+            price: '@',
+            theme: '@'
         }
     }
     link(scope, element) {

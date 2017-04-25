@@ -10,19 +10,28 @@
     <script src="app.js"></script>
     <base href="/">
 </head>
-<body ng-controller="appController as appCtrl" style="background: {{ appCtrl.mainBackground }};">
+<body ng-controller="appController as appCtrl" style="background:{{ appCtrl.mainBackground }};">
     <nav class="navbar">
         <h1 class="brand">GetSumGrub</h1>
+        <input type="text" placeholder=""/>
         <div class="shopping-bag"></div>
     </nav>
-    <section class="content">
+    <div class="content">
+        <section class="hero" style="background-image: url('{{appCtrl.heroImage}}')">
+        </section>
         <div class="content-container">
-            <div class="card"></div>
-            <div class="card"></div>
-            <div class="card"></div>
+            <h2 class="section-title">Classics</h2>
+        </div>
+        <div class="content-container">
+            <card ng-repeat="donut in appCtrl.dounts"
+                  name="{{ donut.name }}"
+                  image="{{ donut.imageUrl }}"
+                  description="{{ donut.description }}"
+                  price="{{ donut.price }}">
+            </card>
         </div>
 
-    </section>
+    </div>
 
 </body>
 </html>
